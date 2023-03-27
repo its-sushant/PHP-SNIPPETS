@@ -1,0 +1,89 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "required": ["bomFormat", "specVersion", "components"],
+    "properties": {
+        "bomFormat": {"type": "string"},
+        "specVersion": {"type": "string"},
+        "serialNumber": {"type": "string"},
+        "version": {"type": "string"},
+        "metadata": {
+            "type": "object",
+            "properties": {
+                "timestamp": {"type": "string"},
+                "tools": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "required": ["vendor", "name", "version"],
+                        "properties": {
+                            "vendor": {"type": "string"},
+                            "name": {"type": "string"},
+                            "version": {"type": "string"}
+                        }
+                    }
+                },
+                "authors": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "required": ["name", "email"],
+                        "properties": {
+                            "name": {"type": "string"},
+                            "email": {"type": "string"}
+                        }
+                    }
+                },
+                "component": {
+                    "type": "object",
+                    "properties": {
+                        "group": {"type": "string"},
+                        "name": {"type": "string"},
+                        "version": {"type": "string"}
+                    }
+                },
+                "licenses": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "license": {"type": "string"},
+                            "url": {"type": "string"},
+                            "comments": {"type": "string"}
+                        }
+                    }
+                }
+            }
+        },
+        "components": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": ["type", "name", "version"],
+                "properties": {
+                    "type": {"type": "string"},
+                    "name": {"type": "string"},
+                    "version": {"type": "string"},
+                    "group": {"type": "string"},
+                    "purl": {"type": "string"},
+                    "licenses": {
+                        "type": "array",
+                        "items": {"type": "string"}
+                    },
+                    "externalReferences": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "required": ["type", "url"],
+                            "properties": {
+                                "type": {"type": "string"},
+                                "url": {"type": "string"},
+                                "comment": {"type": "string"}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

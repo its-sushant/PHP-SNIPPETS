@@ -1,0 +1,29 @@
+{
+    "name": "its-sushant/php-snippets",
+    "description": "Simple php snippets",
+    "type": "library",
+    "keywords": [
+      "php",
+      "snippets",
+      "sushant",
+      "here"
+    ],
+    "license": "MIT",
+    "authors": [
+      {
+        "name": "Sushant Kumar",
+        "email": "sushantt.sk07@gmail.com"
+      }
+    ],
+    "require": {
+      "php": ">=7.3.0",
+      "justinrainbow/json-schema": "5.0.0",
+      "ext-simplexml": "*",
+      "ext-dom": "*"
+    },
+    "autoload": {
+      "psr-4": {
+        "its-sushant\\php-snippets\\": "src/"
+      }
+    }
+  }

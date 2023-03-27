@@ -1,4 +1,8 @@
 <?php
+
+require __DIR__ . '/../vendor/autoload.php';
+use SimpleXMLElement;
+use \DOMDocument as DD;
 /*
 Collecting necessary data
 In this example, we are using static data but in actual implementation data will be retrive from database and then 
@@ -42,10 +46,10 @@ foreach ($components as $component) {
 // Save the XML document
 $xml->asXML("cyclonedx.xml");
 
-// Validate the XML document
-$xmlSchema = new DOMDocument();
-$xmlSchema->load("cyclonedx.xsd");
-$xmlDocument = new DOMDocument();
+//Validate the XML document
+$xmlSchema = new DD();
+$xmlSchema->load("xmlschema.xsd");
+$xmlDocument = new DD();
 $xmlDocument->load("cyclonedx.xml");
 if (!$xmlDocument->schemaValidate($xmlSchema)) {
     die("XML validation error");

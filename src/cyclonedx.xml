@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bom xmlns="http://cyclonedx.org/schema/bom/1.3"><component type="library"><group>ComponentFirst</group><name>ComponentFirst</name><version>1.0.0</version><license id="GPLv3" name="GPLv3"/></component><component type="library"><group>ComponentSecond</group><name>ComponentSecond</name><version>2.0.0</version><license id="Apache-2.0" name="Apache-2.0"/></component></bom>
