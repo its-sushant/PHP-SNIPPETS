@@ -1,0 +1,52 @@
+{# data.json.twig 
+    A very simple template to generate a SPDX document.
+#}
+{
+    "SPDXID": "SPDXRef-DOCUMENT",
+    "name": "example SPDX document",
+    "comment": "This is an example SPDX document",
+    "creator": "Person: John Doe",
+    "created": "2022-03-29T20:19:01Z",
+    "licenseListVersion": "3.14",
+    "dataLicense": "CC0-1.0",
+    "spdxVersion": "SPDX-3.14",
+    "packages": {
+        {% for item in package %}
+            "SPDXID": "{{ item.SPDXID }}",
+            "name": "{{ item.name }}",
+            "versionInfo": "{{ item.versionInfo }}",
+            "downloadLocation": "{{ item.downloadLocation }}",
+            "filesAnalyzed": {{ item.filesAnalyzed }},
+            "licenseConcluded": "{{ item.licenseConcluded }}",
+            "licenseDeclared": "{{ item.licenseDeclared }}",
+            "licenseComments": "{{ item.licenseComments }}",
+            "checksum": {
+                {% for checksum in item.checksum %}
+                    "algorithm": "{{ checksum.algorithm }}",
+                    "checksumValue": "{{ checksum.checksumValue }}"
+                {% endfor %}
+            },
+            "sourceInfo": "{{ item.sourceInfo }}",
+            "licenseInfoFromFiles": {
+                {% for licenseInfoFromFiles in item.licenseInfoFromFiles %}
+                    "{{ licenseInfoFromFiles }}"
+                {% endfor %}
+            },
+            "licenseInfosDeclared": {
+                {% for licenseInfosDeclared in item.licenseInfosDeclared %}
+                    "{{ licenseInfosDeclared }}"
+                {% endfor %}
+            },
+            "licenseCommentsFromFiles": {
+                {% for licenseCommentsFromFiles in item.licenseCommentsFromFiles %}
+                    "{{ licenseCommentsFromFiles }}"
+                {% endfor %}
+            },
+            "attributions": {
+                {% for attributions in item.attributions %}
+                    "{{ attributions }}"
+                {% endfor %}
+            }{% if not loop.last %},{% endif %}
+        {% endfor %}
+    }
+}

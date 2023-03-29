@@ -19,7 +19,8 @@
       "php": ">=7.3.0",
       "justinrainbow/json-schema": "5.0.0",
       "ext-simplexml": "*",
-      "ext-dom": "*"
+      "ext-dom": "*",
+        "twig/twig": "^3.5"
     },
     "autoload": {
       "psr-4": {
