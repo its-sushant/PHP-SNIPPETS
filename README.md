@@ -1,2 +1,2 @@
 # PHP-SNIPPETS
-Some simpel php code
+Some simple php code
